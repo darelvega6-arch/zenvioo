@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soporte - BeaBoo</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap6t+K2bD6xIxQqkQ3sM8e+RXw7C3DyrgXV++o2aL/88+/9kS/l+SmpD8zZR1oN40Nq3QfT7HigDYfFW1zZAQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Estilos personalizados si existen -->
+  <link rel="stylesheet" href="stories.css">
+  <style>
+    #support-page-container {
+      /* Contenedor principal para encapsular estilos */
+    }
+    /* Estilo para el color principal de TikTok */
+    #support-page-container .tiktok-pink {
+      background-color: #FE2C55;
+    }
+    #support-page-container .tiktok-pink-text {
+      color: #FE2C55;
+    }
+    #support-page-container .tiktok-pink-border:focus-within {
+      border-color: #FE2C55;
+    }
+    #support-page-container .tiktok-pink-ring:focus {
+      --tw-ring-color: #FE2C55;
+    }
+    /* Estilo para las tarjetas de categoría */
+    #support-page-container .category-card {
+      min-height: 150px; /* Altura mínima para simular las tarjetas grandes de TikTok */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    #support-page-container .category-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen" id="support-page-container">
+
+  <!-- Header simple para navegación -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-gray-800">BeaBoo</a>
+      <a href="index.html" class="text-gray-600 hover:text-gray-900">Inicio</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- 1. Centro de Ayuda (Knowledge Base) - Estilo TikTok -->
+    <section class="mb-10">
+      <!-- Sección Hero/Banner - Inspirado en el diseño de TikTok -->
+      <div class="bg-white p-8 sm:p-12 rounded-xl shadow-lg relative overflow-hidden">
+        
+        <!-- Contenido principal del Hero -->
+        <div class="relative z-10">
+          <p class="text-lg font-semibold text-gray-500 text-center mb-2">Centro de ayuda</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 text-center mb-6">Hola, ¿en qué podemos ayudarte?</h1>
+
+          <!-- Barra de Búsqueda Prominente -->
+          <div class="max-w-2xl mx-auto flex items-center border-2 border-gray-200 rounded-full overflow-hidden tiktok-pink-border bg-white shadow-md">
+            <input type="search" placeholder="Prueba «crear cuenta» o «eliminar comentario»" class="w-full px-6 py-3 text-gray-700 focus:outline-none" />
+            <button class="tiktok-pink text-white p-3 hover:bg-[#E82A4F] transition duration-300">
+              <i class="fas fa-search text-xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ilustración de fondo (simulada con un div de color) -->
+        <!-- En un entorno real, aquí se usaría una imagen SVG o PNG -->
+        <div class="absolute inset-0 bg-purple-100 opacity-50"></div>
+        <div class="absolute top-0 right-0 w-48 h-48 bg-pink-200 rounded-full transform translate-x-1/3 -translate-y-1/3 opacity-30"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-200 rounded-full transform -translate-x-1/3 translate-y-1/3 opacity-30"></div>
+      </div>
+
+      <!-- Artículos Populares/Categorías - Estilo de Tarjetas Grandes -->
+      <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Temas</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Tarjeta 1: Guía de inicio -->
+        <a href="#" class="bg-white p-6 rounded-xl shadow-md category-card">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Guía de inicio</h3>
+            <p class="text-sm text-gray-500 mb-4">Crear una cuenta, configurar tu perfil, para ti.</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold tiktok-pink-text">Ver más <i class="fas fa-arrow-right ml-1"></i></span>
+            <i class="fas fa-rocket text-3xl text-gray-300"></i>
+          </div>
+        </a>
+
+        <!-- Tarjeta 2: Ajustes de cuenta y privacidad -->
+        <a href="#" class="bg-white p-6 rounded-xl shadow-md category-card">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Ajustes de cuenta y privacidad</h3>
+            <p class="text-sm text-gray-500 mb-4">Datos de la cuenta, ajustes de privacidad, eliminar cuenta.</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold tiktok-pink-text">Ver más <i class="fas fa-arrow-right ml-1"></i></span>
+            <i class="fas fa-user-cog text-3xl text-gray-300"></i>
+          </div>
+        </a>
+
+        <!-- Tarjeta 3: Seguridad -->
+        <a href="#" class="bg-white p-6 rounded-xl shadow-md category-card">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Seguridad</h3>
+            <p class="text-sm text-gray-500 mb-4">Informar de un problema, seguridad de la cuenta y del usuario.</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold tiktok-pink-text">Ver más <i class="fas fa-arrow-right ml-1"></i></span>
+            <i class="fas fa-shield-alt text-3xl text-gray-300"></i>
+          </div>
+        </a>
+
+        <!-- Tarjeta 4: Solución de problemas -->
+        <a href="#" class="bg-white p-6 rounded-xl shadow-md category-card">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Inicio de sesión y solución de problemas</h3>
+            <p class="text-sm text-gray-500 mb-4">Iniciar sesión, restablecer contraseña, solución de problemas técnicos.</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold tiktok-pink-text">Ver más <i class="fas fa-arrow-right ml-1"></i></span>
+            <i class="fas fa-sign-in-alt text-3xl text-gray-300"></i>
+          </div>
+        </a>
+
+        <!-- Tarjeta 5: Monetización -->
+        <a href="#" class="bg-white p-6 rounded-xl shadow-md category-card">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Monetización</h3>
+            <p class="text-sm text-gray-500 mb-4">TikTok LIVE, Regalos, cartera, políticas de monetización.</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold tiktok-pink-text">Ver más <i class="fas fa-arrow-right ml-1"></i></span>
+            <i class="fas fa-money-bill-wave text-3xl text-gray-300"></i>
+          </div>
+        </a>
+
+        <!-- Tarjeta 6: Contenido y reportes -->
+        <a href="#" class="bg-white p-6 rounded-xl shadow-md category-card">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Contenido y reportes</h3>
+            <p class="text-sm text-gray-500 mb-4">Crear vídeos, explorar vídeos, mensajes y notificaciones, reportar contenido.</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold tiktok-pink-text">Ver más <i class="fas fa-arrow-right ml-1"></i></span>
+            <i class="fas fa-video text-3xl text-gray-300"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Formulario de Reporte de Problemas - Mantenido y estilizado -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mt-10">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Informar de un problema</h2>
+      <p class="text-gray-500 mb-6">Háblanos del problema que quieres remitirnos o comparte tu opinión sobre tu experiencia. La información que compartas con nosotros solo se usará para responder a tu consulta.</p>
+
+      <form name="support" method="POST" data-netlify="true" enctype="multipart/form-data" class="space-y-6">
+        
+        <!-- Tema (Requerido) -->
+        <div>
+          <label for="topic" class="block text-sm font-medium text-gray-700">Tema <span class="tiktok-pink-text">*</span></label>
+          <select id="topic" name="topic" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none tiktok-pink-ring focus:border-[#FE2C55] sm:text-sm rounded-md">
+            <option value="">Selecciona una opción</option>
+            <option value="account">Problemas con la cuenta</option>
+            <option value="technical">Problemas técnicos (bugs, errores)</option>
+            <option value="content">Reporte de contenido</option>
+            <option value="feedback">Sugerencia o feedback</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+
+        <!-- Nombre de usuario (Opcional) -->
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-700">Nombre de usuario</label>
+          <input type="text" id="username" name="username" placeholder="@nombre_de_usuario" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none tiktok-pink-ring focus:border-[#FE2C55] sm:text-sm">
+          <p class="mt-2 text-xs text-gray-500">El nombre de usuario se encuentra en tu perfil. Empieza por «@».</p>
+        </div>
+
+        <!-- Correo electrónico de contacto (Requerido) -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico de contacto <span class="tiktok-pink-text">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="Escribir" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none tiktok-pink-ring focus:border-[#FE2C55] sm:text-sm">
+        </div>
+
+        <!-- Datos adicionales (Requerido) -->
+        <div>
+          <label for="details" class="block text-sm font-medium text-gray-700">Datos adicionales <span class="tiktok-pink-text">*</span></label>
+          <textarea id="details" name="details" rows="5" required minlength="50" placeholder="Proporciona más información (mínimo 50 caracteres)" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none tiktok-pink-ring focus:border-[#FE2C55] sm:text-sm"></textarea>
+        </div>
+
+        <!-- Datos adjuntos (Opcional) -->
+        <div>
+          <label for="attachments" class="block text-sm font-medium text-gray-700">Datos adjuntos (Opcional)</label>
+          <input type="file" id="attachments" name="attachments" multiple class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#FE2C55]/10 file:tiktok-pink-text hover:file:bg-[#FE2C55]/20">
+          <p class="mt-2 text-xs text-gray-500">Puedes adjuntar hasta 10 capturas de pantalla. Se admiten varios tipos de archivo.</p>
+        </div>
+
+        <!-- Declaración de responsabilidad -->
+        <div class="flex items-start">
+          <div class="flex items-center h-5">
+            <input id="confirmation" name="confirmation" type="checkbox" required class="focus:ring-[#FE2C55] h-4 w-4 tiktok-pink-text border-gray-300 rounded">
+          </div>
+          <div class="ml-3 text-sm">
+            <label for="confirmation" class="font-medium text-gray-700">Confirmo, a mi leal saber y entender, que toda la información especificada anteriormente es precisa y verdadera.</label>
+            <p class="text-gray-500">Al enviar la solicitud, acepto que mis datos se procesen de acuerdo con la Política de privacidad.</p>
+          </div>
+        </div>
+
+        <!-- Botón de Envío -->
+        <div>
+          <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white tiktok-pink hover:bg-[#E82A4F] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FE2C55] transition duration-300">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

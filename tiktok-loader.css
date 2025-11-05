@@ -1,0 +1,58 @@
+/* TikTok Loader CSS */
+:root {
+  --animation-duration: 0.8s;
+  --circle-diameter: 20px;
+  --circle-scale-percent: 0.2;
+}
+
+.tiktok-loader {
+  position: relative;
+  width: var(--circle-diameter);
+  height: var(--circle-diameter);
+  margin: 20px auto;
+  display: none; /* Oculto por defecto */
+}
+
+.tiktok-loader:before,
+.tiktok-loader:after {
+  content: "";
+  display: inline-block;
+  width: var(--circle-diameter);
+  height: var(--circle-diameter);
+  border-radius: 50%;
+  position: absolute;
+  animation-duration: var(--animation-duration);
+  animation-name: revolve;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: darken;
+}
+
+.tiktok-loader:before {
+  background: #FE2C55;
+  animation-delay: calc(var(--animation-duration) * -0.5);
+}
+
+.tiktok-loader:after {
+  background: #FF69B4;
+  animation-delay: 0s;
+}
+
+@keyframes revolve {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(var(--circle-diameter)) scale(calc(1 - var(--circle-scale-percent)));
+  }
+  50% {
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    transform: translateX(calc(var(--circle-diameter) * -1)) scale(calc(1 - var(--circle-scale-percent)));
+  }
+}
+
+.loading-active {
+  display: block !important;
+}
