@@ -1,4 +1,9 @@
 version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - cd amplify/backend/function/api && npm install
 frontend:
   phases:
     preBuild:
@@ -6,7 +11,7 @@ frontend:
         - npm install
     build:
       commands:
-        - echo "No build needed"
+        - echo "Build complete"
   artifacts:
     baseDirectory: /
     files:
@@ -14,3 +19,4 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+      - amplify/backend/function/api/node_modules/**/*

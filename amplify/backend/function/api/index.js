@@ -1,6 +1,8 @@
 const { S3Client, PutObjectCommand, ListObjectsV2Command, GetObjectCommand } = require('@aws-sdk/client-s3');
 
-const s3Client = new S3Client({ region: process.env.AWS_REGION });
+const s3Client = new S3Client({ 
+  region: process.env.AWS_REGION || 'us-east-1'
+});
 
 exports.handler = async (event) => {
   const headers = {
