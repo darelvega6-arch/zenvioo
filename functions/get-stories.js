@@ -1,22 +1,22 @@
 import { S3Client, ListObjectsV2Command, GetObjectCommand } from '@aws-sdk/client-s3';
 
-export async function onRequest(context) {
+export async function getStories(request, env) {
   try {
-    const url = new URL(context.request.url);
+    const url = new URL(request.url);
     const userId = url.searchParams.get('userId');
 
     const s3Client = new S3Client({
-      region: context.env.AWS_REGION,
+      region: env.AWS_REGION,
       credentials: {
-        accessKeyId: context.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: context.env.AWS_SECRET_ACCESS_KEY,
+        accessKeyId: env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
       },
     });
 
     const prefix = userId ? `stories/${userId}/` : 'stories/';
     
     const listCommand = new ListObjectsV2Command({
-      Bucket: context.env.AWS_S3_BUCKET,
+      Bucket: env.AWS_S3_BUCKET,
       Prefix: prefix,
     });
 
@@ -27,7 +27,7 @@ export async function onRequest(context) {
       for (const item of listResponse.Contents) {
         if (item.Key.endsWith('.json')) {
           const getCommand = new GetObjectCommand({
-            Bucket: context.env.AWS_S3_BUCKET,
+            Bucket: env.AWS_S3_BUCKET,
             Key: item.Key,
           });
           const response = await s3Client.send(getCommand);
