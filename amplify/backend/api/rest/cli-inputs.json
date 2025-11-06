@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "paths": {
+    "/upload-note": {
+      "name": "/upload-note",
+      "lambdaFunction": "uploadNote"
+    },
+    "/get-notes": {
+      "name": "/get-notes",
+      "lambdaFunction": "getNotes"
+    }
+  }
+}
