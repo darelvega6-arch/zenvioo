@@ -2103,7 +2103,7 @@ document.getElementById('note-content').addEventListener('input', function() {
     likeButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
     try {
-      const response = await fetch('/.netlify/functions/like-note', {
+      const response = await fetch('/like-note', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -2919,7 +2919,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (profileImageDesktop) profileImageDesktop.src = base64String;
 
         // Subir a S3
-        const response = await fetch('/.netlify/functions/upload-image', {
+        const response = await fetch('/upload-image', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -3162,7 +3162,7 @@ function saveNote() {
     const isFollowing = text.textContent === 'Dejar de seguir';
     
     try {
-      const response = await fetch('/.netlify/functions/manage-following', {
+      const response = await fetch('/manage-following', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -4077,7 +4077,7 @@ setInterval(checkScheduledChapters, 60000);
   // Función para cargar estadísticas del perfil desde AWS S3
   async function loadUserStats(userId) {
     try {
-      const response = await fetch(`/.netlify/functions/get-user-stats?userId=${userId}`);
+      const response = await fetch(`/get-user-stats?userId=${userId}`);
       const result = await response.json();
       
       if (!response.ok) {
@@ -4136,7 +4136,7 @@ setInterval(checkScheduledChapters, 60000);
   // Nueva función para cargar historias desde S3
   async function loadUserStoriesFromS3(userId) {
     try {
-      const response = await fetch(`/.netlify/functions/get-stories?userId=${userId}`);
+      const response = await fetch(`/get-stories?userId=${userId}`);
       const result = await response.json();
       
       if (!response.ok) {
@@ -4413,7 +4413,7 @@ setInterval(checkScheduledChapters, 60000);
 
     try {
       // Primero verificar límites
-      const limitsCheck = await fetch('/.netlify/functions/check-user-limits', {
+      const limitsCheck = await fetch('/check-user-limits', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -4456,7 +4456,7 @@ setInterval(checkScheduledChapters, 60000);
       }
 
       // Subir nota a AWS S3
-      const response = await fetch('/.netlify/functions/upload-note', {
+      const response = await fetch('/upload-note', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -4526,7 +4526,7 @@ setInterval(checkScheduledChapters, 60000);
     feedContainer.innerHTML = '<div class="text-center py-8"><i class="fas fa-spinner fa-spin text-2xl text-[#FE2C55]"></i></div>';
     
     try {
-      const response = await fetch('/.netlify/functions/get-notes?limit=50');
+      const response = await fetch('/get-notes?limit=50');
       const result = await response.json();
       
       if (!response.ok) {
@@ -4669,7 +4669,7 @@ async function deleteNote(noteId) {
   if (!confirm('¿Estás seguro de que quieres eliminar esta nota?')) return;
   
   try {
-    const response = await fetch('/.netlify/functions/delete-note', {
+    const response = await fetch('/delete-note', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -4700,7 +4700,7 @@ async function likeNote(noteId) {
     if (!user) return;
 
     try {
-      const response = await fetch('/.netlify/functions/like-note', {
+      const response = await fetch('/like-note', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -4810,7 +4810,7 @@ async function likeNote(noteId) {
     photosContainer.innerHTML = '';
 
     try {
-      const response = await fetch('/.netlify/functions/get-notes?limit=50');
+      const response = await fetch('/get-notes?limit=50');
       const result = await response.json();
       
       if (!response.ok) {
@@ -5094,7 +5094,7 @@ async function likeNote(noteId) {
   /*********************** NOTIFICACIONES **************************/
   async function addNotification(userId, message, type = 'info') {
     try {
-      const response = await fetch('/.netlify/functions/manage-notifications', {
+      const response = await fetch('/manage-notifications', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -5775,7 +5775,7 @@ async function performSearch(query) {
         const base64String = e.target.result;
         const timestamp = Date.now();
 
-        const response = await fetch('/.netlify/functions/upload-image', {
+        const response = await fetch('/upload-image', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -7082,7 +7082,7 @@ async function performSearch(query) {
   
   async function loadStoriesFromAWS() {
     try {
-      const response = await fetch('/.netlify/functions/get-stories');
+      const response = await fetch('/get-stories');
       const data = await response.json();
       return data.stories || [];
     } catch (error) {
@@ -7098,7 +7098,7 @@ async function performSearch(query) {
     
     for (const story of allStories.slice(0, 30)) {
       try {
-        const chaptersResponse = await fetch(`/.netlify/functions/get-chapters?storyId=${story.id}`);
+        const chaptersResponse = await fetch(`/get-chapters?storyId=${story.id}`);
         const chaptersData = await chaptersResponse.json();
         
         if (chaptersData.chapters) {
@@ -8507,7 +8507,7 @@ async function performSearch(query) {
         const base64String = e.target.result;
         const timestamp = Date.now();
 
-        const response = await fetch('/.netlify/functions/upload-image', {
+        const response = await fetch('/upload-image', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -9609,7 +9609,7 @@ async function autoMigrateFirebaseData() {
     console.log('Starting automatic Firebase to S3 migration...');
     showLoader();
     
-    const response = await fetch('/.netlify/functions/migrate-firebase-to-s3', {
+    const response = await fetch('/migrate-firebase-to-s3', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

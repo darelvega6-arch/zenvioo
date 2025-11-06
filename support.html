@@ -164,7 +164,7 @@
       <h2 class="text-3xl font-bold text-gray-900 mb-2">Informar de un problema</h2>
       <p class="text-gray-500 mb-6">Háblanos del problema que quieres remitirnos o comparte tu opinión sobre tu experiencia. La información que compartas con nosotros solo se usará para responder a tu consulta.</p>
 
-      <form name="support" method="POST" data-netlify="true" enctype="multipart/form-data" class="space-y-6">
+      <form name="support" method="POST" enctype="multipart/form-data" class="space-y-6" onsubmit="handleSupportForm(event)">
         
         <!-- Tema (Requerido) -->
         <div>
@@ -226,6 +226,36 @@
     </section>
 
   </main>
+
+  <script>
+    async function handleSupportForm(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      try {
+        const response = await fetch('/submit-support', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+          alert('Tu solicitud ha sido enviada correctamente. Te contactaremos pronto.');
+          form.reset();
+        } else {
+          throw new Error('Error al enviar el formulario');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar tu solicitud. Por favor, intenta de nuevo.');
+      }
+    }
+  </script>
 
 </body>
 

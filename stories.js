@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Obtener historias
-            const response = await fetch('/.netlify/functions/get-stories', {
+            const response = await fetch('/get-stories', {
                 method: 'GET',
             });
 
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const oldStories = result.stories.filter(story => story.timestamp <= twelveHoursAgo);
                 oldStories.forEach(async (story) => {
                     try {
-                        await fetch('/.netlify/functions/delete-story', {
+                        await fetch('/delete-story', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 progressBar.style.width = '70%';
                 
                 // Subir historia
-                const response = await fetch('/.netlify/functions/upload-story', {
+                const response = await fetch('/upload-story', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function openStoryViewer(userId) {
         try {
             // Obtener historias del usuario desde AWS S3
-            const response = await fetch(`/.netlify/functions/get-stories?userId=${userId}`, {
+            const response = await fetch(`/get-stories?userId=${userId}`, {
                 method: 'GET',
             });
 
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Incrementar vistas
                 if (currentUser && currentUser.uid !== userId) {
-                    fetch('/.netlify/functions/update-story', {
+                    fetch('/update-story', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function deleteStory(storyId) {
         try {
-            const response = await fetch('/.netlify/functions/delete-story', {
+            const response = await fetch('/delete-story', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

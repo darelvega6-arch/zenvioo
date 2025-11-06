@@ -188,7 +188,7 @@
             }, 500);
 
             try {
-                const response = await fetch('/.netlify/functions/migrate-firebase-to-s3', {
+                const response = await fetch('/migrate-firebase-to-s3', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
