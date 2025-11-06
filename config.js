@@ -5,3 +5,4 @@ const API_URL = 'https://main.d3a8pfy9udfjd3.amplifyapp.com/api';
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { API_URL };
 }
+
