@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Obtener historias
-            const response = await fetch('/api/get-stories', {
+            const response = await fetch(API_URL + '/get-stories', {
                 method: 'GET',
             });
 
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const oldStories = result.stories.filter(story => story.timestamp <= twelveHoursAgo);
                 oldStories.forEach(async (story) => {
                     try {
-                        await fetch('/api/delete-story', {
+                        await fetch(API_URL + '/delete-story', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 progressBar.style.width = '70%';
                 
                 // Subir historia
-                const response = await fetch('/api/upload-story', {
+                const response = await fetch(API_URL + '/upload-story', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Incrementar vistas
                 if (currentUser && currentUser.uid !== userId) {
-                    fetch('/api/update-story', {
+                    fetch(API_URL + '/update-story', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function deleteStory(storyId) {
         try {
-            const response = await fetch('/api/delete-story', {
+            const response = await fetch(API_URL + '/delete-story', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

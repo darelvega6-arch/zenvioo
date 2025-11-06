@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+  <script src="config.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BeaBoo</title>
@@ -2919,7 +2920,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (profileImageDesktop) profileImageDesktop.src = base64String;
 
         // Subir a S3
-        const response = await fetch('/api/upload-image', {
+        const response = await fetch(API_URL + '/upload-image', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -4438,7 +4439,7 @@ setInterval(checkScheduledChapters, 60000);
       }
 
       // Subir nota a AWS S3
-      const response = await fetch('/api/upload-note', {
+      const response = await fetch(API_URL + '/upload-note', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -4508,7 +4509,7 @@ setInterval(checkScheduledChapters, 60000);
     feedContainer.innerHTML = '<div class="text-center py-8"><i class="fas fa-spinner fa-spin text-2xl text-[#FE2C55]"></i></div>';
     
     try {
-      const response = await fetch('/api/get-notes?limit=50');
+      const response = await fetch(API_URL + '/get-notes?limit=50');
       const result = await response.json();
       
       if (!response.ok) {
@@ -4792,7 +4793,7 @@ async function likeNote(noteId) {
     photosContainer.innerHTML = '';
 
     try {
-      const response = await fetch('/api/get-notes?limit=50');
+      const response = await fetch(API_URL + '/get-notes?limit=50');
       const result = await response.json();
       
       if (!response.ok) {
@@ -5757,7 +5758,7 @@ async function performSearch(query) {
         const base64String = e.target.result;
         const timestamp = Date.now();
 
-        const response = await fetch('/api/upload-image', {
+        const response = await fetch(API_URL + '/upload-image', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -7064,7 +7065,7 @@ async function performSearch(query) {
   
   async function loadStoriesFromAWS() {
     try {
-      const response = await fetch('/api/get-stories');
+      const response = await fetch(API_URL + '/get-stories');
       const data = await response.json();
       return data.stories || [];
     } catch (error) {
@@ -7421,6 +7422,7 @@ async function performSearch(query) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <script src="config.js"></script>
   <meta charset="UTF-8">
   <title>${storyData.title}</title>
   <style>
@@ -8489,7 +8491,7 @@ async function performSearch(query) {
         const base64String = e.target.result;
         const timestamp = Date.now();
 
-        const response = await fetch('/api/upload-image', {
+        const response = await fetch(API_URL + '/upload-image', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -8654,6 +8656,7 @@ async function performSearch(query) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <script src="config.js"></script>
   <meta charset="UTF-8">
   <title>${storyData.title}</title>
   <style>
