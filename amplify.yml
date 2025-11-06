@@ -1,14 +1,12 @@
 version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - npm ci
 frontend:
   phases:
+    preBuild:
+      commands:
+        - npm install
     build:
       commands:
-        - echo "Building frontend"
+        - echo "No build needed"
   artifacts:
     baseDirectory: /
     files:
