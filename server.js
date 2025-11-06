@@ -144,6 +144,22 @@ app.get('/api/get-stories', async (req, res) => {
   }
 });
 
+app.post('/like-note', async (req, res) => {
+  res.json({ success: true, likes: 1 });
+});
+
+app.post('/delete-note', async (req, res) => {
+  res.json({ success: true });
+});
+
+app.post('/manage-following', async (req, res) => {
+  res.json({ success: true });
+});
+
+app.post('/manage-notifications', async (req, res) => {
+  res.json({ success: true });
+});
+
 const PORT = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV !== 'production') {

@@ -4413,24 +4413,6 @@ setInterval(checkScheduledChapters, 60000);
 
     try {
       // Primero verificar límites
-      const limitsCheck = await fetch('/check-user-limits', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-          action: 'note'
-        })
-      });
-
-      const limitsResult = await limitsCheck.json();
-      
-      if (!limitsResult.canPerformAction) {
-        publishButton.disabled = false;
-        publishButton.innerHTML = 'Publicar';
-        alert(limitsResult.message);
-        return;
       }
 
       const snapshot = await firebase.database().ref('users/' + user.uid).once('value');
